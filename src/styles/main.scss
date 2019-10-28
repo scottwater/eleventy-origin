@@ -1,0 +1,29 @@
+main {
+  > *,
+  blockquote > * {
+    @apply mb-6;
+  }
+
+  > :last-child,
+  blockquote > :last-child {
+    @apply mb-0;
+  }
+
+  li {
+    @apply mb-3;
+  }
+
+  li:last-child {
+    @apply mb-0;
+  }
+
+  ul {
+    list-style-type: disc;
+    padding-left: theme("padding.6");
+  }
+
+  ol {
+    list-style-type: decimal;
+    padding-left: theme("padding.6");
+  }
+}

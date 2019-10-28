@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    {% include "head.njk" %}
+  </head>
+  <body class="max-w-3xl mx-auto flex flex-col h-full min-h-screen font-sans text-black leading-snug antialiased">
+
+    {% include "header.njk" %}
+    <main class='flex-1'>
+      {{ content | safe }}
+    </main>
+    {% include "footer.njk" %}
+  </body>
+</html>

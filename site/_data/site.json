@@ -1,0 +1,16 @@
+{
+  "name": "Origin",
+  "url": "https://example.com",
+  "title": "Origin - Your Site on Eleventy",
+  "description": "The Origin starter pays homage to Rails. While Eleventy itself is very opinionated and `just works`, Origin is quite a opinionated and leverages many of the libraries and tools I enjoy working in Rails",
+  "feed": {
+    "subtitle": "Origin - ",
+    "filename": "feed.xml",
+    "path": "/feed.xml"
+  },
+  "author": {
+    "name": "Scott Watermasysk",
+    "email": "origin@scottw.com"
+  },
+  "twitter": "@scottw"
+}

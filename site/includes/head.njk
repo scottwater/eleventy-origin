@@ -1,0 +1,10 @@
+<title>{{ title or site.title }}</title>
+<meta name="viewport" content="width=device-width">
+<meta charset="utf-8">
+<meta name="generator" content="Eleventy + Origin" />
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<link rel="alternate" href="{{ site.feed.path | absoluteUrl(urls.site)}}" type="application/atom+xml" title="{{ site.title }}">
+{% seo %}
+<link rel="icon" type="image/png" href="/assets/images/favicons/favicon-32x32.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="/assets/images/favicons/favicon-16x16.png" sizes="16x16" />
+{% include "packs.njk" %}
