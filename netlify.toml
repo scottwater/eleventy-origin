@@ -9,7 +9,7 @@
 
     [plugins.hashfiles.config]
     entryPoints = [
-      "*.html"
+      "dist/*.html"
     ]
     staticDir = "/static/"
     canonicalRoot = "https://practical-panini-b62059.netlify.com/"
