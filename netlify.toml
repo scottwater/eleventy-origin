@@ -4,10 +4,8 @@
 
 [plugins]
 
-  [plugins.hashfiles]
-  type = "netlify-plugin-hashfiles"
-
-    [plugins.hashfiles.config]
+  [netlify-plugin-hashfiles]
+    [config]
     entryPoints = [
       "dist/*.html"
     ]
