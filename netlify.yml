@@ -1,0 +1,16 @@
+plugins:
+  hashfiles:
+    type: netlify-plugin-hashfiles
+    config:
+      # An array of glob patterns for pages on your site
+      # Recursive traversal will start from these
+      entryPoints:
+        - *.html
+
+      # Directory where content-addressable files are moved
+      staticDir: /static/
+
+      # canonicalRoot is the origin where your page will eventually be deployed
+      # Setting canonicalRoot will enable hashfiles to map canonical URL's to your
+      # page in your code to local files on disk
+      canonicalRoot: https://practical-panini-b62059.netlify.com/
