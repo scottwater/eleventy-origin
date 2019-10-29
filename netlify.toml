@@ -1,3 +1,15 @@
 [build]
   publish = "dist"
   command = "npm run build"
+
+[plugins]
+
+  [plugins.hashfiles]
+  type = "netlify-plugin-hashfiles"
+
+    [plugins.hashfiles.config]
+    entryPoints = [
+      "*.html"
+    ]
+    staticDir = "/static/"
+    canonicalRoot = "https://practical-panini-b62059.netlify.com/"
