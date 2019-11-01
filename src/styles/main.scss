@@ -4,6 +4,10 @@ main {
     @apply mb-6;
   }
 
+  .highlight-line {
+    @apply pl-3;
+  }
+
   > :last-child,
   blockquote > :last-child {
     @apply mb-0;
