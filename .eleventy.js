@@ -3,6 +3,7 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const debugging = require("./src/utils/debugging");
 const seo = require("./src/utils/seo");
+const excerpts = require("./src/utils/excerpts");
 module.exports = function(eleventyConfig) {
   // we need site/includes/packs.njk to be ignored in git
   // however, we still need it to watched for changes.
@@ -12,6 +13,7 @@ module.exports = function(eleventyConfig) {
 
   debugging(eleventyConfig);
   seo(eleventyConfig);
+  excerpts(eleventyConfig);
 
   let markdownIt = require("markdown-it");
   let markdownItEmoji = require("markdown-it-emoji");
