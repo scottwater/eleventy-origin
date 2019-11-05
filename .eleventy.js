@@ -15,22 +15,24 @@ module.exports = function(eleventyConfig) {
   seo(eleventyConfig);
   excerpts(eleventyConfig);
 
-  let markdownIt = require("markdown-it");
-  let markdownItEmoji = require("markdown-it-emoji");
-  let markdownItFootnotes = require("markdown-it-footnote");
-  let options = {
+  const markdownIt = require("markdown-it");
+  const markdownItEmoji = require("markdown-it-emoji");
+  const markdownItFootnotes = require("markdown-it-footnote");
+  const options = {
     html: true,
     breaks: true,
     linkify: true
   };
 
-  eleventyConfig.setLibrary(
-    "md",
-    markdownIt(options)
-      .use(markdownItEmoji)
-      .use(markdownItFootnotes)
-  );
+  const md = markdownIt(options)
+    .use(markdownItEmoji)
+    .use(markdownItFootnotes);
 
+  eleventyConfig.setLibrary("md", md);
+
+  eleventyConfig.addPairedShortcode("markdown", function(content) {
+    return md.render(content);
+  });
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
   eleventyConfig.setDataDeepMerge(true);
