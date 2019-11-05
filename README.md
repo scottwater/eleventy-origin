@@ -16,6 +16,7 @@ It is preconfigured with the following:
 * [Turbolinks](https://github.com/turbolinks/turbolinks) - used to make navigating from page to page more efficient. No need to host a router/etc.
 * [Syntax Highlighting](https://github.com/11ty/eleventy-plugin-syntaxhighlight) - preconfigured syntax highlights
 * SEO - Under src/utils/seo.js is the basic starting point for a SEO plugin (similar to Jekyll SEO). It pulls data from the site.json file, but can be overridden with a seo.json file when want settings for bots.
+* Excerpt short code - extract an excerpt from your frontmatter or document body
 * Easily deploy to Netlify & Now
 
 ## UI
