@@ -4,16 +4,14 @@ const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const debugging = require("./src/utils/debugging");
 const seo = require("./src/utils/seo");
 const excerpts = require("./src/utils/excerpts");
+const markdown = require("./src/utils/markdown");
+
 module.exports = function(eleventyConfig) {
   // we need site/includes/packs.njk to be ignored in git
   // however, we still need it to watched for changes.
   // the .eleventyignore is used to tell Eleventy what to ignore
   eleventyConfig.setUseGitIgnore(false);
   eleventyConfig.setDataDeepMerge(true);
-
-  debugging(eleventyConfig);
-  seo(eleventyConfig);
-  excerpts(eleventyConfig);
 
   const markdownIt = require("markdown-it");
   const markdownItEmoji = require("markdown-it-emoji");
@@ -27,6 +25,11 @@ module.exports = function(eleventyConfig) {
   const md = markdownIt(options)
     .use(markdownItEmoji)
     .use(markdownItFootnotes);
+
+  debugging(eleventyConfig);
+  seo(eleventyConfig);
+  excerpts(eleventyConfig);
+  markdown(eleventyConfig, md);
 
   eleventyConfig.setLibrary("md", md);
 
