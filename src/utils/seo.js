@@ -76,10 +76,7 @@ module.exports = (eleventyConfig, options = {}) => {
         );
         const local = pullWithBackup("local", "en_US");
         const metaKeywords = keywords || pullWithBackup("keywords");
-        const baseUrl =
-          process.env.DEPLOY_PRIME_URL ||
-          process.env.URL ||
-          pullWithBackup("url");
+        const baseUrl = process.env.URL || pullWithBackup("url");
         const pageUrl = `${baseUrl}${page.url}`;
         const publishedTime = isoDate(date);
         const siteTitle = pullWithBackup("title", title);
