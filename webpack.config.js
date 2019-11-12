@@ -30,8 +30,7 @@ module.exports = env => {
           ]
         },
         {
-          test: /\.s[ac]ss$/,
-          include: [path.resolve(__dirname, "src/styles")],
+          test: /\.((s[ac]ss)|(css))$/,
           use: [
             { loader: MiniCssExtractPlugin.loader },
             { loader: "css-loader" },
