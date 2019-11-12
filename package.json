@@ -31,6 +31,7 @@
     "style-loader": "^0.23.1",
     "tailwindcss": "^1.0",
     "turbolinks": "^5.2.0",
+    "typeface-inter": "^3.10.0",
     "webpack": "^4.28.2",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.14"
