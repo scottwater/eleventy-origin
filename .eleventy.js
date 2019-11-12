@@ -5,6 +5,7 @@ const debugging = require("./src/utils/debugging");
 const seo = require("./src/utils/seo");
 const excerpts = require("./src/utils/excerpts");
 const markdown = require("./src/utils/markdown");
+const { loadFilters } = require("./src/utils/filters");
 
 module.exports = function(eleventyConfig) {
   // we need site/includes/packs.njk to be ignored in git
@@ -30,7 +31,7 @@ module.exports = function(eleventyConfig) {
   seo(eleventyConfig);
   excerpts(eleventyConfig);
   markdown(eleventyConfig, md);
-
+  loadFilters(eleventyConfig);
   eleventyConfig.setLibrary("md", md);
 
   eleventyConfig.addPairedShortcode("markdown", function(content) {
