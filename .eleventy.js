@@ -4,16 +4,15 @@ const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const debugging = require("./src/utils/debugging");
 const seo = require("./src/utils/seo");
 const excerpts = require("./src/utils/excerpts");
+const markdown = require("./src/utils/markdown");
+const { loadFilters } = require("./src/utils/filters");
+
 module.exports = function(eleventyConfig) {
   // we need site/includes/packs.njk to be ignored in git
   // however, we still need it to watched for changes.
   // the .eleventyignore is used to tell Eleventy what to ignore
   eleventyConfig.setUseGitIgnore(false);
   eleventyConfig.setDataDeepMerge(true);
-
-  debugging(eleventyConfig);
-  seo(eleventyConfig);
-  excerpts(eleventyConfig);
 
   const markdownIt = require("markdown-it");
   const markdownItEmoji = require("markdown-it-emoji");
@@ -28,6 +27,11 @@ module.exports = function(eleventyConfig) {
     .use(markdownItEmoji)
     .use(markdownItFootnotes);
 
+  debugging(eleventyConfig);
+  seo(eleventyConfig);
+  excerpts(eleventyConfig);
+  markdown(eleventyConfig, md);
+  loadFilters(eleventyConfig);
   eleventyConfig.setLibrary("md", md);
 
   eleventyConfig.addPairedShortcode("markdown", function(content) {
@@ -41,9 +45,12 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
   eleventyConfig.addLayoutAlias("page", "layouts/page.njk");
 
-  // eleventyConfig.addCollection("blog", collection => {
-  //   return collection.getFilteredByTag("blog").reverse();
-  // });
+  eleventyConfig.addCollection("feed", collection => {
+    return collection
+      .getFilteredByTag("blog")
+      .reverse()
+      .slice(0, 20);
+  });
 
   // move to head so that it does not interfere
   // with turbolinks in development
