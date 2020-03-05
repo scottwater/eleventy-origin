@@ -57,8 +57,13 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.setBrowserSyncConfig({
     // show 404s in dev. Borrowed from eleventy blog starter
     callbacks: {
-      ready: function(err, browserSync) {
-        const content_404 = fs.readFileSync("dist/404.html");
+      ready: function(_, browserSync) {
+        // A bit of chicken and egg. This is keeps the exception
+        // from showing during the first local build
+        const generated404Exists = fs.existsSync("dist/404.html");
+        const content_404 = generated404Exists
+          ? fs.readFileSync("dist/404.html")
+          : "<h1>File Does Not Exist</h1>";
 
         browserSync.addMiddleware("*", (_, res) => {
           // Provides the 404 content without redirect.
