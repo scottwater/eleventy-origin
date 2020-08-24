@@ -1,6 +1,7 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 const fonts = defaultTheme.fontFamily.sans;
 module.exports = {
+  plugins: [require("@tailwindcss/ui")],
   theme: {
     extend: {
       fontFamily: {

@@ -48,5 +48,8 @@
     "serve": "eleventy --serve",
     "serve:dist": "npx http-server dist"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@tailwindcss/ui": "^0.5.0",
+    "alpinejs": "^2.6.0"
+  }
 }
