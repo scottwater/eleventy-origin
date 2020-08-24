@@ -7,7 +7,6 @@
     "@11ty/eleventy-plugin-syntaxhighlight": "^3.0.1",
     "@babel/core": "^7.11.4",
     "@babel/preset-env": "^7.11.0",
-    "@tailwindcss/custom-forms": "^0.2.1",
     "babel-loader": "^8.1.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "copy-webpack-plugin": "^6.0.3",
