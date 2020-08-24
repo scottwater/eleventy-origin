@@ -13,7 +13,6 @@
     "css-loader": "^4.2.1",
     "cssnano": "^4.1.10",
     "file-loader": "^6.0.0",
-    "html-webpack-plugin": "^4.3.0",
     "luxon": "^1.25.0",
     "markdown-it-emoji": "^1.4.0",
     "markdown-it-footnote": "^3.0.2",
@@ -29,6 +28,7 @@
     "stimulus": "^1.1.1",
     "style-loader": "^1.2.1",
     "tailwindcss": "^1.7",
+    "@tailwindcss/ui": "^0.5.0",
     "turbolinks": "^5.2.0",
     "typeface-inter": "^3.15.0",
     "webpack": "^4.44.1",
@@ -36,20 +36,18 @@
     "webpack-dev-server": "^3.11.0"
   },
   "scripts": {
-    "build": "run-s -l clean package:prod generate purge",
-    "build:serve": "run-s -l clean package:prod generate purge serve:dist",
+    "build": "run-s -l clean generate package:prod",
+    "build:serve": "run-s -l clean generate package:prod serve:dist",
     "clean": "rm -rf dist",
     "clean:assets": "rm -rf dist/assets",
     "dev": "run-p -l package serve",
     "generate": "eleventy",
     "package": "webpack --mode development --watch --env.NODE_ENV=development",
     "package:prod": "webpack --mode production --env.NODE_ENV=production",
-    "purge": "purgecss --config purgecss.config.js --output dist/assets",
     "serve": "eleventy --serve",
     "serve:dist": "npx http-server dist"
   },
   "dependencies": {
-    "@tailwindcss/ui": "^0.5.0",
     "alpinejs": "^2.6.0"
   }
 }

@@ -1,4 +1,3 @@
-site/includes/packs.njk
 /node_modules
 /dist
 .netlify/
